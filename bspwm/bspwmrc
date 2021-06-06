@@ -1,0 +1,32 @@
+#!/bin/sh
+
+#sxhkd &
+
+bspc monitor DP-2 -d web alt sh comms audio edit bg
+bspc monitor DP-0 -d main code etc
+
+
+bspc config border_width         2
+bspc config window_gap          12
+
+bspc config split_ratio          0.52
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+
+bspc rule -a Steam desktop='main'
+bspc rule -a battle.net.exe state=floating desktop='main'
+bspc rule -a Tk state=floating
+bspc rule -a XTerm state=floating desktop='bg'
+bspc rule -a DwarfFortress state=fullscreen
+bspc rule -a discord desktop='comms'
+#bspc rule -a waterfox-current desktop='web'
+#bspc rule -a Emacs state=tiled desktop='code'
+#bspc rule -a jetbrains-idea-ce state=tiled desktop='code'
+#bspc rule -a jetbrains-clion state=tiled desktop='code'
+
+$HOME/.config/polybar/launch.sh
+xmousepasteblock &
+
+feh --bg-scale ~/.config/wallpapers/current_wallpaper
+
+picom --config ~/.config/picom/picom.conf
